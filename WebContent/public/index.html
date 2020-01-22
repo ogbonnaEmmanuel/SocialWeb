@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Make some friends today!</title>
+        <script src="public/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="public/bower_components/angular/angular.min.js"></script>
+        <script src="public/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="public/js/main.js"></script>
+        <script src="public/js/userService.js"></script>
+        <script src="public/js/friendService.js"></script>
+        <script src="public/js/rootCtrl.js"></script>
+        <script src="public/js/landingCtrl.js"></script>
+        <script src="public/js/profileCtrl.js"></script>
+
+        <link rel="stylesheet" href="public/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="public/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/profile.css" type="text/css" />
+    </head>
+    <body ng-app="snApp" ng-controller="rootCtrl">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">The Social Network</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right" ng-hide="{{user.userId === undefined}}">
+                    <li><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="loader" ng-if="isLoading">Loading...</div>
+        
+        <div ng-view ng-if="!isLoading"></div>
+    </body>
+</html>
